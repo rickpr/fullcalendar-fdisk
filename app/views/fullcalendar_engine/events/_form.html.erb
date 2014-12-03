@@ -1,6 +1,6 @@
 <%= form_for @event ||= FullcalendarEngine::Event.new, :html => { id: 'event_form' } do |f| %>
 <p>
-<%= current_user %>
+<%= session.inspect %>
   <%=f.label :title %>
   <br/>
   <%=f.text_field :title %>
