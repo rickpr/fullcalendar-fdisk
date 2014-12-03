@@ -34,14 +34,16 @@ module FullcalendarEngine
                   start_time: start_time, end_time: end_time)
       events = []
       @events.each do |event|
-        events << { id: event.id,
-                    title: event.title,
-                    description: event.description || '', 
-                    start: event.starttime.iso8601,
-                    end: event.endtime.iso8601,
-                    allDay: event.all_day,
-                    recurring: (event.event_series_id) ? true : false }
-      end
+        if !event.private || current_user.private
+         events << { id: event.id,
+                     title: event.title,
+                     description: event.description || '', 
+                     start: event.starttime.iso8601,
+                     end: event.endtime.iso8601,
+                     allDay: event.all_day,
+                     recurring: (event.event_series_id) ? true : false }
+         end
+        end
       render json: events.to_json
     end
 
