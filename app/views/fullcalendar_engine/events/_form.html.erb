@@ -1,10 +1,10 @@
 <%= form_for @event ||= FullcalendarEngine::Event.new, :html => { id: 'event_form' } do |f| %>
 <p>
+current_user
   <%=f.label :title %>
   <br/>
   <%=f.text_field :title %>
 </p>
-Hi you were able to add text.
 <p>
   <%=f.label :description %>
   <br/>
@@ -23,6 +23,10 @@ Hi you were able to add text.
 <p>
   <%=f.label :all_day %>
   <%=f.check_box :all_day %>
+</p>
+<p>
+  <%=f.label :private %>
+  <%=f.check_box :private %>
 </p>
 <p>
   <%=f.label :period, "Repeats" %>

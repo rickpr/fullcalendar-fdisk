@@ -23,7 +23,10 @@
   <%=f.label :all_day %>
   <%=f.check_box :all_day %>
 </p>
-
+<p>
+  <%=f.label :private %>
+  <%=f.check_box :private %>
+</p>
 <%=f.hidden_field :commit_button, :value => ""%>
 <p>
   <%if @event.event_series -%>
